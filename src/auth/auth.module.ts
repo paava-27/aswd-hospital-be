@@ -12,7 +12,7 @@ import { AuthService } from './auth.service';
 import { MailService } from 'src/mail/mail.service';
 import { JwtTokenUtil } from 'src/utils/jwt.util';
 import { AuthController } from './auth.controller';
-import { JwtStrategy } from 'src/strategy/jwt.strategy'; 
+import { JwtStrategy } from 'src/strategy/jwt.strategy';
 
 @Module({
   imports: [

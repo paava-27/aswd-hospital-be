@@ -1,7 +1,30 @@
-import {Controller,Post,Body,UsePipes,ValidationPipe,HttpCode,HttpStatus,UseGuards,Request,UnauthorizedException,} from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  UsePipes,
+  ValidationPipe,
+  HttpCode,
+  HttpStatus,
+  UseGuards,
+  Request,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { SignupDto, SigninDto, ResetPasswordDto, VerifyOtpDto, SendOtpDto } from './dto/auth.dto';
-import { ApiTags, ApiOperation, ApiResponse, ApiBody, ApiBearerAuth } from '@nestjs/swagger';
+import {
+  SignupDto,
+  SigninDto,
+  ResetPasswordDto,
+  VerifyOtpDto,
+  SendOtpDto,
+} from './dto/auth.dto';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiBody,
+  ApiBearerAuth,
+} from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('auth')
@@ -16,7 +39,12 @@ export class AuthController {
   @ApiResponse({ status: 201, description: 'User created successfully' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   async signup(@Body() dto: SignupDto): Promise<any> {
-    return this.authService.signup(dto.username, dto.email, dto.password, dto.role);
+    return this.authService.signup(
+      dto.username,
+      dto.email,
+      dto.password,
+      dto.role,
+    );
   }
 
   @HttpCode(HttpStatus.OK)
